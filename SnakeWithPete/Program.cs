@@ -19,6 +19,9 @@ namespace SnakeWithPete
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine((char)9786); // hex '☺'
 
+            //Build Walls
+            BuildWall();
+
             // Get Snake to move
             //NOTES: Do while loops- It runs at least 1 time 
             //NOTES: While(true) loops- it checks if its true before running codeblock
@@ -59,8 +62,6 @@ namespace SnakeWithPete
                 Console.WriteLine((char)9786);
 
             } while (Started);
-            //Build Walls
-            BuildWall();
             // Detect wall 
 
             
