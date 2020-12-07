@@ -10,6 +10,7 @@ namespace SnakeWithPete
             Console.OutputEncoding = Encoding.UTF8; //NOTES: to get special chars
             int xPos = 35;
             int yPos = 20;
+            bool Started = true;
 
             //Get snake to appear on screen
             //NOTES: Console.WriteLine('\u0047'); // unicode 'G'
@@ -21,12 +22,43 @@ namespace SnakeWithPete
             // Get Snake to move
             //NOTES: Do while loops- It runs at least 1 time 
             //NOTES: While(true) loops- it checks if its true before running codeblock
+            ConsoleKey command = Console.ReadKey().Key;
 
             do
             {
+                switch (command)
+                {
+                    //NOTES: Make head move left, remove Head, move cursor position to left side (1 step)
+                    case ConsoleKey.LeftArrow:
+                        Console.SetCursorPosition(xPos, yPos);
+                        Console.Write(" ");
+                        xPos--;
+                        break;
 
-            } while (true);
+                    case ConsoleKey.UpArrow:
+                        Console.SetCursorPosition(xPos, yPos);
+                        Console.Write(" ");
+                        yPos--;
+                        break;
 
+                    case ConsoleKey.RightArrow:
+                        Console.SetCursorPosition(xPos, yPos);
+                        Console.Write(" ");
+                        xPos++;
+                        break;
+
+                    case ConsoleKey.DownArrow:
+                        Console.SetCursorPosition(xPos, yPos);
+                        Console.Write(" ");
+                        yPos++;
+                        break;
+                }
+
+                Console.SetCursorPosition(xPos, yPos);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine((char)9786);
+
+            } while (Started);
             //Build Walls
             BuildWall();
             // Detect wall 
