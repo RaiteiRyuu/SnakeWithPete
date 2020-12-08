@@ -10,7 +10,8 @@ namespace SnakeWithPete
             Console.OutputEncoding = Encoding.UTF8; //NOTES: to get special chars
             int xPos = 35;
             int yPos = 20;
-            bool Started = true;
+            bool started = true;
+            bool hitWall = false;
 
             //Get snake to appear on screen
             //NOTES: Console.WriteLine('\u0047'); // unicode 'G'
@@ -61,11 +62,17 @@ namespace SnakeWithPete
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine((char)9786);
 
-            } while (Started);
+            } while (started);
             // Detect wall 
-
+            //Slow game down
+            hitWall = DidSnakeHitWall(xPos, yPos);
             
             Console.ReadLine();
+        }
+
+        private static bool DidSnakeHitWall(int xPos, int yPos)
+        {
+            if (xPos == 1 || xPos == 70 || yPos == 1 || yPos == 31) return true; return false;
         }
 
         private static void BuildWall()
